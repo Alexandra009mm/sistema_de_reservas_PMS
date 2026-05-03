@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Portal del Río</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <div class="container_header">
+        <header>
+            <button id="boton_show" class="btn" type="button" onclick="show_menu()">Menu</button>
+            <span>2026</span>
+            <h1>Golden Gate Hotel</h1>
+            <span>****</span>
+            <button id="login" class="btn">Sign Up</button>
+        </header>
+
+        <nav class="nav_index">
+            <ul class="menu">
+                <li><a href="#rooms" class="directions_menu">Rooms</a></li>
+                <li><a href="#about_us" class="directions_menu">About</a></li>
+                <li><a href="#services" class="directions_menu">Events</a></li>
+                <li><a href="#contact" class="directions_menu">Contact Us</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <main class="rooms">
+
+        <div class="rooms">
+            <h1>Rooms Panel</h1>
+            <button class="btn-add">+ New Room</button>
+        </div>
+
+        <div class="grid-rooms">
+
+            <!-- Room 1 -->
+            <div class="room-card status-available">
+                <img src="" alt="Room image">
+                <div class="car">
+                    <p class="room-number">101</p>
+                    <p class="room-type">Standard Double</p>
+                    <span class="badge bg-success">Available</span>
+                </div>
+            </div>
+
+            <!-- Room 2 -->
+            <div class="room-card status-occupied">
+                <img src="" alt="Room image">
+                <div class="car">
+                    <p class="room-number">102</p>
+                    <p class="room-type">Junior Suite</p>
+                    <span class="badge bg-danger">Occupied</span>
+                </div>
+            </div>
+
+            <!-- Room 3 -->
+            <div class="room-card status-cleaning">
+                <img src="" alt="Room image">
+                <div class="car">
+                    <p class="room-number">103</p>
+                    <p class="room-type">Standard Double</p>
+                    <span class="badge bg-warning">Cleaning</span>
+                </div>
+            </div>
+
+            <!-- Room 4 -->
+            <div class="room-card status-available">
+                <img src="" alt="Room image">
+                <div class="car">
+                    <p class="room-number">104</p>
+                    <p class="room-type">King Deluxe</p>
+                    <span class="badge bg-success">Available</span>
+                </div>
+            </div>
+
+            <!-- Room 5 -->
+            <div class="room-card status-available">
+                <img src="" alt="Room image">
+                <div class="car">
+                    <p class="room-number">105</p>
+                    <p class="room-type">Standard Double</p>
+                    <span class="badge bg-success">Available</span>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="container_information_footer">
+
+            <div class="card_footer">
+                <h4>Phone Support</h4><br>
+                <p>+300 45789284</p>
+            </div>
+
+            <div class="card_footer">
+                <h4>Follow Us</h4><br>
+                <ul>
+                    <li><a href="#">Instagram</a></li><br>
+                    <li><a href="#">WhatsApp</a></li><br>
+                    <li><a href="#">Facebook</a></li><br>
+                </ul>
+            </div>
+
+            <div class="card_footer">
+                <h4>Opening Hours</h4><br>
+                <div>
+                    <p>Monday - Saturday</p>
+                    <span>09AM - 09PM</span>
+                </div><br>
+                <div>
+                    <p>Sunday</p>
+                    <span>10AM - 08PM</span>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="marca">&copy; <span id="year"></span> | Hotel Portal del Río</div> 
+    </footer>
+
+    <script src="js/main.js"></script>
+
+</body>
+</html>
