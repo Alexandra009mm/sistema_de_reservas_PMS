@@ -1,0 +1,406 @@
+@use 'variables' as *;
+
+
+main#index {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+    section {
+        &.hero {
+            border-radius: 8px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+            animation: fadeInDown 0.8s ease both;
+             width: 100%;
+            height: 900px;
+            overflow: hidden;
+            position: relative;
+
+            #hero_absolute{    
+                color: rgb(29, 27, 27);
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                padding: 20px;
+                border-radius: 30px;
+                transition: all 0.4s ease;
+                z-index: 1;
+                background-color: rgba(245, 236, 236, 0.203);
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                backdrop-filter: blur(5px);
+                    &:hover {
+                    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+                    }
+                    .btn{
+                        width: max-content;
+                        align-self: center;
+                    }
+                }
+            }
+            #relative{
+                width: 100%;
+                height: 200%;
+                object-fit: cover;
+                display: block;
+                ul{
+                    display: flex;
+                    width: 200%;
+                    height: 200px;
+                    margin: 0;
+                    padding: 0;
+                    animation: cambio 20s infinite alternate ease;
+                    li{
+                        list-style: none;
+                        width: 50%;
+                        height: 200%;
+                        img{
+                            width: 100%;
+                            height: 200%;
+                        }
+                    }
+                }
+        }
+                /* ── FORM ── */
+        &.form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            padding: 50px 30px;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+            animation: fadeInUp 0.8s ease 0.2s both;
+
+            #formReserva {
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                align-items: flex-end;
+                gap: 18px;
+                max-width: 72%;
+                justify-content: center;
+
+                .form-group {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 8px;
+                    flex: 1;
+                    width: 100px;
+                    label {
+                        font-size: 0.9rem;
+                        letter-spacing: 0.5px;
+                    }
+                }
+
+                input, select {
+                    padding: 12px 20px;
+                    border: 1px solid $secondary_color;
+                    border-radius: 8px;
+                    color: $color_third;
+                    width: 100%;
+                    transition: box-shadow 0.3s ease, transform 0.2s ease;
+
+                    &:focus {
+                        outline: none;
+                        box-shadow: 0 0 0 3px rgba($secondary_color, 0.35);
+                        transform: translateY(-2px);
+                    }
+                }
+
+                .btn {
+                   background-color: $primary_color;
+                    color: $color_third;
+                    padding: 12px 24px;
+                    border: none;
+                    border-radius: 8px;
+                    cursor: pointer;
+                    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+                    transition: all 0.3s ease;
+                    border: 1px solid $secondary_color;
+                        &:hover {
+                        color: $primary_color;
+                        background-color: darken($secondary_color, 10%);
+                        transform: translateY(-4px) scale(1.05);
+                        box-shadow: 0 10px 24px rgba(75, 65, 65, 0.3);
+                        
+                    }
+                }
+            }
+        }
+        &.info {
+            display: flex;
+            flex-direction: column;
+            gap: 60px;
+            margin-bottom: 80px;
+
+            .info-row {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                align-items: center;
+                gap: 40px;
+
+                img {
+                    width: 100%;
+                    height: 280px;
+                    object-fit: cover;
+                    border-radius: 12px;
+                }
+
+                .text {
+                    h3 {
+                        font-size: 1.6rem;
+                        margin-bottom: 10px;
+                    }
+
+                    p {
+                        font-size: 1rem;
+                        line-height: 1.5;
+                    }
+                }
+            }
+
+            .reverse {
+                img {
+                    order: 2;
+                }
+                .text {
+                    order: 1;
+                }
+            }
+        }
+    }
+}
+
+//main reservas///
+// ─── Variables ────────────────────────────────────────────
+$gold:        #c9a84c;
+$gold-dim:    rgba(201, 168, 76, 0.4);
+$gold-glow:   rgba(201, 168, 76, 0.18);
+$card-bg:     #10141e;
+$card-border: rgba(180, 145, 65, 0.22);
+$text:        #f0ead8;
+$text-muted:  rgba(201, 168, 76, 0.5);
+$input-bg:    rgba(255, 255, 255, 0.03);
+$radius:      10px;
+
+// ─── Mixins ───────────────────────────────────────────────
+@mixin label-float {
+  top: 0.38rem;
+  transform: none;
+  font-size: 0.63rem;
+  letter-spacing: 0.1em;
+  color: $gold;
+}
+
+@mixin field-focus {
+  border-color: $gold;
+  background: rgba(201, 168, 76, 0.05);
+  box-shadow:
+    0 0 0 3px $gold-glow,
+    0 0 18px rgba(201, 168, 76, 0.2),
+    inset 0 1px 0 rgba(201, 168, 76, 0.08);
+}
+
+// ─── Formulario ───────────────────────────────────────────
+#form_reserva {
+  background: $card-bg;
+  border: 1px solid $card-border;
+  border-radius: 18px;
+  padding: 3rem 2.5rem 2.5rem;
+  max-width: 560px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  box-shadow:
+    0 0 0 1px rgba(201, 168, 76, 0.1),
+    0 8px 40px rgba(0, 0, 0, 0.6),
+    0 0 80px rgba(201, 168, 76, 0.1);
+
+  // Línea dorada decorativa superior
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, $gold, transparent);
+    opacity: 0.6;
+  }
+
+  // Título
+  > p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.4rem, 3vw, 1.9rem);
+    font-weight: 300;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #e8d5a3;
+    text-align: center;
+    margin: 0 0 2.5rem;
+  }
+
+  // ─── Form group ─────────────────────────────────────────
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-bottom: 1.4rem;
+
+    // Label base
+    label {
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 0.82rem;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      color: $text-muted;
+      pointer-events: none;
+      white-space: nowrap;
+      transition:
+        top           0.22s cubic-bezier(0.4, 0, 0.2, 1),
+        font-size     0.22s cubic-bezier(0.4, 0, 0.2, 1),
+        color         0.22s ease,
+        letter-spacing 0.22s ease;
+    }
+
+    // Campos base
+    input,
+    select,
+    textarea {
+      width: 100%;
+      box-sizing: border-box;
+      background: $input-bg;
+      border: 1px solid $card-border;
+      border-radius: $radius;
+      padding: 1.25rem 1rem 0.35rem;
+      color: $text;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 300;
+      outline: none;
+      -webkit-appearance: none;
+      appearance: none;
+      transition:
+        border-color 0.3s ease,
+        box-shadow   0.3s ease,
+        background   0.3s ease;
+
+      &::placeholder { color: transparent; }
+
+      &:-webkit-autofill {
+        -webkit-box-shadow: 0 0 0 100px $card-bg inset;
+        -webkit-text-fill-color: $text;
+      }
+
+      &:hover {
+        border-color: $gold-dim;
+        background: rgba(201, 168, 76, 0.04);
+      }
+
+      &:focus { @include field-focus; }
+    }
+
+    // Select: flecha custom
+    select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23c9a84c' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      padding-right: 2.5rem;
+
+      option {
+        background: $card-bg;
+        color: $text;
+      }
+    }
+
+    // Textarea
+    textarea {
+      resize: vertical;
+      min-height: 90px;
+      padding-top: 1.4rem;
+    }
+
+    // Label elevado (JS añade .active o .filled)
+    &.active,
+    &.filled {
+      label { @include label-float; }
+    }
+
+    // Textarea: label parte desde arriba
+    &:has(textarea) {
+      label {
+        top: 1.1rem;
+        transform: none;
+      }
+
+      &.active label,
+      &.filled label {
+        top: 0.35rem;
+      }
+    }
+  }
+
+  // ─── Botón ──────────────────────────────────────────────
+  button[type="submit"] {
+    display: block;
+    width: 100%;
+    margin-top: 2rem;
+    padding: 0.95rem 2rem;
+    background: linear-gradient(135deg, #b8900f 0%, #e8c04a 45%, #b8900f 100%);
+    background-size: 200% auto;
+    color: #0d0f10;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    border: none;
+    border-radius: $radius;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition:
+      background-position 0.5s ease,
+      transform           0.22s cubic-bezier(0.4, 0, 0.2, 1),
+      box-shadow          0.3s ease;
+    box-shadow:
+      0 4px 20px rgba(201, 168, 76, 0.35),
+      inset 0 1px 0 rgba(255, 255, 255, 0.15);
+
+    // Shimmer sweep
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        110deg,
+        transparent 30%,
+        rgba(255, 255, 255, 0.25) 50%,
+        transparent 70%
+      );
+      transform: translateX(-100%);
+      transition: transform 0.55s ease;
+    }
+
+    &:hover {
+      background-position: right center;
+      transform: translateY(-3px);
+      box-shadow:
+        0 10px 30px rgba(201, 168, 76, 0.45),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+
+      &::after { transform: translateX(100%); }
+    }
+
+    &:active {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 15px rgba(201, 168, 76, 0.3);
+    }
+  }
+}

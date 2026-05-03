@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Portal del Río</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <div class="container_header">
+        <header>
+        <button id="boton_show" class="btn"  type="button" onclick="show_menu()">Menu</button>
+        <span>2026</span>
+        <h1>Hotel puerta de oro</h1>
+        <span>****</span>
+        <button id="login" class="btn">Sign up</button>
+        </header>
+
+        <nav class="nav_index">
+            <ul class="menu">
+                <li><a href="#rooms" class="directions_menu">Rooms</a></li>
+                <li><a href="#about_us" class="directions_menu">About</a></li>
+                <li><a href="#services" class="directions_menu">Events</a></li>
+                <li><a href="#contact" class="directions_menu">Contact Us</a></li>
+            </ul>
+        </nav>
+    </div>
+    
+
+    <main  id="index">
+        <section class="hero">
+            <div id="hero_absolute">
+                <h2>Hotel Puerta de oro</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum animi inventore et corrupti, dolorem adipisci odit nihil.</p>
+                <a href="#book_now" class="btn">Book Now</a>
+            </div>
+            <div id="relative">
+                <ul>
+                    <li><img src="img/hero4.jpg" alt="fachada del otel"></li>
+                    <li><img src="img/hero6.jpg " alt="piscina"></li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="form">
+            <h2>Hotel Reservation</h2>
+
+          <form id="formReserva">
+            
+            <div class="form-group">
+                <label for="check_in">Check-in date</label>
+                <input type="date" name="check_in" id="check_in" required>
+            </div>
+
+            <div class="form-group">
+                <label for="check_out">Check-out date</label>
+                <input type="date" name="check_out" id="check_out" required>
+            </div>
+
+            <div class="form-group">
+                <label for="room_type">Room type</label>
+                <select id="room_type" name="room_type" required>
+                <option value="">Select a room</option>
+                <option value="single">Single</option>
+                <option value="double">Double</option>
+                <option value="suite">Suite</option>
+                <option value="twin">Twin</option>
+                <option value="double_bedded">Double Bedded</option>
+                <option value="family">Family</option>
+                <option value="connecting">Connecting</option>
+                <option value="deluxe">Deluxe</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="guests">Guests</label>
+                <input type="number" name="guests" id="guests" min="1" max="15" placeholder="Number of guests" required>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Search" class="btn">
+            </div>        
+        </form>
+
+        </section>
+
+     <section class="info">
+
+        <!-- BLOQUE 1 -->
+        <div class="info-row">
+            <img src="https://images.unsplash.com/photo-1560347876-aeef00ee58a1?q=80&w=800" alt="Habitación hotel">
+            <div class="text">
+                <h3>Habitaciones de Lujo</h3>
+                <p>Disfruta de espacios modernos, cómodos y diseñados para brindarte el mejor descanso en un ambiente exclusivo.</p>
+            </div>
+        </div>
+
+        <!-- BLOQUE 2 (invertido) -->
+        <div class="info-row reverse">
+            <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=800" alt="Piscina hotel">
+            <div class="text">
+                <h3>Piscina & Relax</h3>
+                <p>Relájate en nuestra piscina con vista privilegiada y disfruta de una experiencia tropical única.</p>
+            </div>
+        </div>
+
+        <!-- BLOQUE 3 -->
+        <div class="info-row">
+            <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=800" alt="Restaurante hotel">
+            <div class="text">
+                <h3>Restaurante Gourmet</h3>
+                <p>Sabores exclusivos preparados por chefs expertos en un ambiente elegante y acogedor.</p>
+            </div>
+        </div>
+
+    </section>
+    </main>
+
+    <footer>
+        <div class="container_information_footer">
+
+            <div class="card_footer">
+                <h4>Phone Support</h4><br>
+                <p>+300 45789284</p>
+            </div>
+
+            <div class="card_footer">
+                <h4>Follow Us</h4><br>
+                <ul>
+                    <li><a href="#">Instagram</a></li><br>
+                    <li><a href="#">WhatsApp</a></li><br>
+                    <li><a href="#">Facebook</a></li><br>
+                </ul>
+            </div>
+
+            <div class="card_footer">
+                <h4>Opening</h4><br>
+                <div>
+                    <p>Monday - Saturday</p>
+                    <span>09AM - 09PM</span>
+                </div><br>
+                <div>
+                    <p>Sunday</p>
+                    <span>10AM - 08PM</span>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="marca">&copy;<span id="year"></span>| Hotel Portal del Río</div>
+    </footer>
+    <script src="js/main.js"></script>
+
+</body>
+</html>

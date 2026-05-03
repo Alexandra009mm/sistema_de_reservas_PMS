@@ -1,0 +1,162 @@
+@use 'estilos/variables' as *;
+@use 'estilos/header' as *;
+@use 'estilos/main' as *;
+@use 'estilos/footer' as *;
+@use 'estilos/nav' as *;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: $secondary_color;
+    transition: all 0.3s ease;
+
+    &:hover {
+        color: darken($secondary_color, 50%);
+        transform: scale(1.10);
+    }
+}
+
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: $primary_color;
+    color: $secondary_color;
+}
+  
+
+
+/* ── BOTÓN GLOBAL ── */
+.btn {
+    background-color: $secondary_color;
+    color: $primary_color;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+
+    &:hover {
+        background-color: darken($secondary_color, 10%);
+        transform: translateY(-3px) scale(1.05);
+        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3);
+    }
+
+    &:active {
+        transform: translateY(0) scale(0.98);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+}
+
+
+/* ── ANIMACIONES ── */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@keyframes cambio {
+    0%   { margin-left: 0%; }     
+    45%  { margin-left: 0%; }
+    50%  { margin-left: -100%; }  
+    100% { margin-left: -100%; }  
+}
+
+
+@media (max-width: 480px) {
+    body {
+    font-size: 14px;
+    }
+  header {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 15px;
+    padding: 20px;
+        h1,span {
+            grid-column: span 2;
+            text-align: center;
+        }
+        #menu {
+            grid-column: 1 / 2;
+            order: 5; 
+        }
+        #login {
+            grid-column: 2 / 3;
+            order: 5;
+        }
+    }
+     main#index{
+        section{
+            &.info {
+            display: flex;
+            flex-direction: column; /* Cambia a columna para que respire */
+            gap: 20px;
+                #card2, #card3{
+                        grid-column: auto;
+                        grid-row: auto;
+                }
+            }
+            &.form {
+                #formReserva {
+                        flex-direction: column;
+                        align-items: flex-start;
+                }
+            }
+        }
+    }
+    footer {
+            padding: 7px 20px;
+    }
+    .container_information_footer {
+    flex-direction: column; /* Apila la info del footer */
+    gap: 10px;
+    padding: 20px 0;
+  }
+}
+
+
+/* tablet */
+@media (min-width: 768px) {
+  body {
+    font-size: 16px;
+  }
+}
+
+/* desktop */
+@media (min-width: 1024px) {
+  body {
+    font-size: 18px;
+  }
+}
+
+

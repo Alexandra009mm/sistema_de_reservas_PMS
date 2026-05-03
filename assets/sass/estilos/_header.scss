@@ -1,0 +1,31 @@
+@use 'variables' as *;
+
+.container_header{
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    padding: 30px 20px;
+    background-color: rgba(132, 132, 132, 0.16); /* Color con transparencia */
+    backdrop-filter: blur(10px);
+
+    h1 {
+        text-align: center;
+        letter-spacing: 3px;
+        transition: transform 0.3s ease;
+
+        &:hover {
+            transform: scale(1.03);
+        }
+    }
+
+    span {
+        letter-spacing: 10px;
+    }
+}
